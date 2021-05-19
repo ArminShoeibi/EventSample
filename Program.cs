@@ -16,7 +16,7 @@ namespace EventSample
 
     public class EventPublisher
     {
-        public delegate void Del(string str);
+        private delegate void Del(string str);
         public event Del OnBalanceExceeds250;
         public void CheckBalance(int balance)
         {
@@ -25,7 +25,7 @@ namespace EventSample
             {
                 if (OnBalanceExceeds250 is not null)
                 {
-                    OnBalanceExceeds250("ATTENTION! The current balance exceeds 250 $"); // this string will sent to HandleOnBalanceExceeds250 method.
+                    OnBalanceExceeds250("ATTENTION! The current balance exceeds 250 $"); // this string will pass to HandleOnBalanceExceeds250 method.
                 }
             }
         }
